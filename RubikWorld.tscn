@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://cube_object.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RubikWorld.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.858824, 0.117647, 0.117647, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="ConcavePolygonShape" id=3]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[node name="RubikWorld" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="DirectionalLightTop" type="DirectionalLight" parent="."]
+transform = Transform( 0.573577, 0.579228, 0.579228, -2.30405e-07, -0.707107, 0.707107, 0.819152, -0.40558, -0.40558, 3, 3, 3 )
+__meta__ = {
+"_editor_description_": "FdF"
+}
+
+[node name="DirectionalLightBack" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, -0.5, 0, 0.707107, -0.707107, 0.707107, 0.5, 0.5, -3, -3, 3 )
+light_color = Color( 0.96, 0.96, 0.96, 1 )
+__meta__ = {
+"_editor_description_": "FdF"
+}
+
+[node name="CameraHub" type="Spatial" parent="."]
+transform = Transform( 1, 0, -0.000767945, 0, 1, 0, 0.000767945, 0, 1, 0, 0, 0 )
+
+[node name="Camera" type="Camera" parent="CameraHub"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6 )
+
+[node name="Buttons" type="Spatial" parent="CameraHub"]
+
+[node name="Shuffle" type="MeshInstance" parent="CameraHub/Buttons"]
+transform = Transform( 0.0743979, 0, 0, 0, 0.0466124, 0, 0, 0, 0.00663338, 0.76225, 0.395797, 0.842282 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="ShuffleButton" type="StaticBody" parent="CameraHub/Buttons/Shuffle"]
+
+[node name="ShuffleCollider" type="CollisionShape" parent="CameraHub/Buttons/Shuffle/ShuffleButton"]
+shape = SubResource( 3 )
+
+[node name="main" type="Spatial" parent="."]
+
+[node name="cube_object" parent="main" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.5, -0.5 )
