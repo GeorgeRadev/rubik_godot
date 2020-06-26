@@ -10,6 +10,8 @@ Rubik cube Godot project with multiple sizes
 - Start the project (usualy *F5*)
 - Click the red rectangle in the upper right corner for shuffling
 - There should be something like:
-![screenshot](/GeorgeRadev/rubik_godot/blob/master/rubik_screenshot.png?raw=true)
+
+![screenshot](https://github.com/GeorgeRadev/rubik_godot/blob/master/rubik_screenshot.png?raw=true)
+
 - Happy solving
 
